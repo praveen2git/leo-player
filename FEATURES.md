@@ -1,5 +1,37 @@
 # Leo Player - Complete Features List
 
+## 🔍 **NEW: Global Search & Download**
+
+### Search Features
+- ✅ **Dual Search Mode**: Drive + Online sources
+- ✅ **Keyboard Shortcut**: Ctrl+K (⌘K on Mac)
+- ✅ **Drive Search**: Real-time search across your files
+- ✅ **Online Search**: YouTube Music integration
+- ✅ **Smart Results**: Thumbnails, metadata, duration
+- ✅ **Instant Playback**: Click to play from Drive
+- ✅ **Download to Drive**: Save online music to your Drive
+
+### Download Manager
+- ✅ **Queue-based Downloads**: Multiple simultaneous downloads
+- ✅ **Progress Tracking**: Real-time progress bars
+- ✅ **Auto-save to Drive**: Direct upload to Google Drive
+- ✅ **High Quality Audio**: Up to 320kbps MP3
+- ✅ **Download History**: Track completed/failed downloads
+- ✅ **Error Handling**: Retry logic and error messages
+- ✅ **Toast Notifications**: Download status updates
+
+### M3U8 Streaming
+- ✅ **HLS Player**: HTTP Live Streaming support
+- ✅ **Adaptive Bitrate**: Auto quality adjustment
+- ✅ **Live Streams**: IPTV and live content
+- ✅ **VOD Support**: Video on demand
+- ✅ **Playlist Manager**: Save M3U8 URLs per user
+- ✅ **Firestore Integration**: Per-user playlist storage
+- ✅ **Quality Controls**: Manual quality selection
+- ✅ **Buffer Management**: Optimized streaming
+
+---
+
 ## 🎵 Audio Player Features
 
 ### Playback Controls
@@ -46,15 +78,15 @@
 - ✅ **Crossfade** (0-10 seconds)
 - ✅ **Playlist Management**
   - Create playlists from queue
-  - Save to Firestore
+  - Save to Firestore (per-user)
   - Load saved playlists
-  - Delete playlists
+  - Edit and delete playlists
 - ✅ Album art display
 - ✅ Track metadata display
 
 ---
 
-## 🎥 Video Player Features
+## 🎬 Video Player Features
 
 ### Playback Controls
 - ✅ Play/Pause
@@ -173,6 +205,10 @@
 
 ## ⌨️ Keyboard Shortcuts
 
+### Search
+- ✅ `Ctrl+K` / `⌘K` - Open global search
+- ✅ `Esc` - Close search modal
+
 ### Playback
 - ✅ `Space` / `K` - Play/Pause
 - ✅ `←` - Previous track
@@ -216,7 +252,7 @@
 
 ---
 
-## 🔒 Authentication
+## 🔐 Authentication
 
 ### Firebase Auth
 - ✅ Email/Password authentication
@@ -236,7 +272,7 @@
 
 ---
 
-## 📦 State Management
+## 💾 State Management & Storage
 
 ### Zustand Stores
 1. **authStore**
@@ -259,6 +295,13 @@
    - Volume/mute
    - Shuffle/repeat
    - Speed control
+
+### Firestore Collections
+- ✅ **playlists**: Music playlists per user
+- ✅ **m3u8_playlists**: M3U8 stream URLs per user
+- ✅ Per-user data isolation
+- ✅ Real-time sync
+- ✅ Offline support
 
 ### Persistence
 - ✅ LocalStorage integration
@@ -312,7 +355,8 @@
 - ✅ Progressive media loading
 - ✅ Buffer management
 - ✅ Pre-loading next track
-- ✅ Adaptive bitrate (future)
+- ✅ Adaptive bitrate (M3U8)
+- ✅ HLS.js integration
 
 ---
 
@@ -325,12 +369,6 @@
 - ✅ Keyboard media keys
 - ✅ Metadata display
 - ✅ Album art in notifications
-
-### Tracking (Future)
-- □ Playback history
-- □ Most played tracks
-- □ Listening statistics
-- □ User preferences learning
 
 ---
 
@@ -349,6 +387,8 @@
 - ✅ Zustand state management
 - ✅ Firebase SDK
 - ✅ Google Drive API
+- ✅ YouTube Data API
+- ✅ HLS.js for streaming
 
 ### Documentation
 - ✅ Comprehensive README
@@ -357,31 +397,36 @@
 - ✅ Architecture docs
 - ✅ Contributing guide
 - ✅ Features list
+- ✅ **NEW: Search & Download guide**
 
 ---
 
 ## 🔮 Future Features
 
 ### Phase 3 (Planned)
-- □ Chromecast support
-- □ AirPlay support
-- □ Lyrics display (LRC files)
-- □ Download for offline
-- □ Share playlists
-- □ Collaborative playlists
-- □ Custom themes
-- □ Dark mode
-- □ Multiple language support
-- □ Voice commands
-- □ Smart recommendations
-- □ Last.fm scrobbling
-- □ Export playlists
-- □ Audio normalization
-- □ Podcast support
-- □ Radio mode
+- ☐ Spotify search integration
+- ☐ SoundCloud support
+- ☐ Automatic metadata tagging
+- ☐ Album art embedding
+- ☐ Lyrics display
+- ☐ Chromecast support
+- ☐ AirPlay support
+- ☐ Download for offline (PWA)
+- ☐ Share playlists
+- ☐ Collaborative playlists
+- ☐ Custom themes
+- ☐ Dark mode
+- ☐ Multiple language support
+- ☐ Voice commands
+- ☐ Smart recommendations
+- ☐ Last.fm scrobbling
+- ☐ Export playlists
+- ☐ Audio normalization
+- ☐ Podcast support
+- ☐ Radio mode
 
 ---
 
-**Total Features Implemented: 150+**
+**Total Features Implemented: 170+**
 
-**Status: Production Ready! 🎉**
+**Status: Production Ready with Advanced Search! 🎉**
