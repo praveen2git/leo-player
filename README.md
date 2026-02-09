@@ -1,211 +1,277 @@
 # Leo Player 🎵🎬📸
 
-A Spotify/YouTube-like experience for your Google Drive media files. Instantly play entire music folders, binge-watch video collections, or slideshow through photo albums with one click.
+> A Spotify/YouTube-like experience for your Google Drive media files. Instantly play entire music folders, binge-watch video collections, or slideshow through photo albums with one click.
 
-## 🎯 Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-10-orange)](https://firebase.google.com/)
 
-### Core Functionality
-- **Folder-Level Playback**: One-click to play all media in any folder
-- **Multi-Format Support**: Audio (MP3, WAV, FLAC, M4A), Video (MP4, MKV, AVI, WebM), Images (JPG, PNG, GIF)
-- **Advanced Player Controls**: Shuffle, repeat, speed control, equalizer
-- **Persistent Mini Player**: Continues playing as you browse
-- **Queue Management**: Add, reorder, and manage your playback queue
+![Leo Player Banner](https://img.shields.io/badge/Leo%20Player-Production%20Ready-success)
 
-### Authentication & Integration
-- Firebase Authentication (Email/Password + Google OAuth)
-- Google Drive API integration with full folder navigation
-- Multi-account Drive support
-- Secure token management
+## ✨ Features
 
-### User Experience
-- Responsive design (Desktop & Mobile)
-- Keyboard shortcuts for power users
-- Resume playback from last position
-- Playback history and user preferences
-- Dark mode support
+### 🎵 Audio Player
+- **Audio Visualizations**: 3 types (Bars, Waveform, Circular)
+- **10-Band Equalizer**: 8 presets + custom settings
+- **Sleep Timer**: Auto-pause after set duration
+- **Playlist Manager**: Create and manage playlists
+- **Gapless Playback**: Smooth transitions between tracks
+- **Speed Control**: 0.5x to 2x playback speed
 
-## 🚀 Getting Started
+### 🎥 Video Player
+- **Auto-Play Next**: "Next Episode" overlay 30s before end
+- **Custom Controls**: Auto-hiding player controls
+- **Picture-in-Picture**: Continue watching while browsing
+- **Resume Playback**: Pick up where you left off
+- **Speed Control**: Adjustable playback speed
+- **Fullscreen Mode**: Immersive viewing experience
+
+### 🖼️ Image Gallery
+- **Lightbox Viewer**: Full-screen image viewing
+- **Zoom Controls**: 1x to 3x zoom with pan
+- **Slideshow Mode**: Auto-play with customizable intervals
+- **Thumbnail Strip**: Quick navigation
+- **Keyboard Navigation**: Arrow keys, Space, Esc
+
+### 📁 Drive Browser
+- **Folder Navigation**: Breadcrumb trail for easy navigation
+- **Real-time Search**: Instant search with 300ms debounce
+- **Smart Filters**: Filter by audio, video, images, or folders
+- **Folder Playback**: "Play All" and "Shuffle" buttons
+- **Infinite Scroll**: Load more files seamlessly
+
+### ⌨️ Keyboard Shortcuts
+- `Space/K` - Play/Pause
+- `←/→` - Previous/Next track
+- `↑/↓` - Volume up/down
+- `M` - Mute/Unmute
+- `S` - Shuffle
+- `R` - Repeat mode
+- `F` - Fullscreen
+- `Esc` - Exit fullscreen/lightbox
+- `?` - Show shortcuts help
+
+### 📱 Mini Player
+- **Persistent Bottom Bar**: Always accessible
+- **Works Across Pages**: Continuous playback while browsing
+- **Quick Controls**: Play, pause, skip, volume
+- **Expand to Full**: Open dedicated player page
+- **Queue Access**: Quick access to upcoming tracks
+
+### 🎮 Queue Management
+- **Drag & Drop Reordering**: Rearrange tracks
+- **Add/Remove Tracks**: Manage queue easily
+- **Current Track Highlighting**: Know what's playing
+- **Queue Sidebar**: Slide-in panel with full queue
+
+### 🔒 Security & Auth
+- **Firebase Authentication**: Email/Password + Google OAuth
+- **Secure Token Management**: Encrypted storage
+- **Multi-Account Support**: Connect multiple Google Drives
+- **Auto Token Refresh**: Seamless session management
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
 - Firebase account
-- Google Cloud Console project (for Drive API)
+- Google Cloud Console account
 
 ### Installation
 
-1. **Clone the repository**
 ```bash
+# Clone the repository
 git clone https://github.com/praveen2git/leo-player.git
 cd leo-player
-```
 
-2. **Install dependencies**
-```bash
+# Install dependencies
 npm install
-```
 
-3. **Set up Firebase**
-- Create a new project at [Firebase Console](https://console.firebase.google.com/)
-- Enable Authentication (Email/Password and Google)
-- Create a Firestore database
-- Copy your Firebase config
-
-4. **Set up Google Drive API**
-- Go to [Google Cloud Console](https://console.cloud.google.com/)
-- Enable Google Drive API
-- Create OAuth 2.0 credentials
-- Add authorized redirect URIs: `http://localhost:3000/api/auth/callback/google`
-- Required scopes:
-  - `https://www.googleapis.com/auth/drive.readonly`
-  - `https://www.googleapis.com/auth/drive.metadata.readonly`
-
-5. **Configure environment variables**
-```bash
+# Set up environment variables
 cp .env.example .env
-```
-Edit `.env` and fill in your credentials
+# Edit .env with your credentials
 
-6. **Run the development server**
-```bash
+# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
+
+### Configuration
+
+See [SETUP.md](SETUP.md) for detailed setup instructions including:
+- Firebase project setup
+- Google Drive API configuration
+- OAuth credentials
+- Environment variables
+
+## 📚 Documentation
+
+- **[SETUP.md](SETUP.md)** - Complete setup guide
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deploy to Vercel, AWS, Docker
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture
+- **[FEATURES.md](FEATURES.md)** - Comprehensive features list (150+)
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
 
 ## 📁 Project Structure
 
 ```
 leo-player/
 ├── src/
-│   ├── app/                 # Next.js app router
-│   │   ├── api/            # API routes
-│   │   ├── auth/           # Auth pages
-│   │   ├── drive/          # Drive browser pages
-│   │   └── player/         # Player pages
-│   ├── components/         # React components
-│   │   ├── auth/          # Authentication components
-│   │   ├── drive/         # Drive browser components
-│   │   ├── player/        # Media player components
-│   │   └── ui/            # shadcn/ui components
-│   ├── lib/               # Utilities and configs
-│   │   ├── firebase.ts    # Firebase configuration
-│   │   ├── drive.ts       # Google Drive API helpers
-│   │   └── utils.ts       # Helper functions
-│   └── store/             # Zustand state management
-│       ├── authStore.ts   # Auth state
-│       ├── driveStore.ts  # Drive navigation state
-│       └── playerStore.ts # Player state
-├── public/                # Static assets
-└── package.json
+│   ├── app/                    # Next.js app router
+│   │   ├── api/               # API routes (Drive, Auth)
+│   │   ├── auth/              # Authentication pages
+│   │   ├── drive/             # Drive browser
+│   │   └── player/            # Audio/Video/Gallery players
+│   ├── components/
+│   │   ├── auth/              # Auth components
+│   │   ├── drive/             # File browser components
+│   │   ├── player/            # Media player components
+│   │   │   ├── AudioPlayer.tsx
+│   │   │   ├── AudioVisualizer.tsx
+│   │   │   ├── VideoPlayer.tsx
+│   │   │   ├── ImageGallery.tsx
+│   │   │   ├── MiniPlayer.tsx
+│   │   │   ├── QueueSidebar.tsx
+│   │   │   ├── Equalizer.tsx
+│   │   │   ├── SleepTimer.tsx
+│   │   │   └── PlaylistManager.tsx
+│   │   └── ui/                # shadcn/ui components
+│   ├── hooks/                 # Custom React hooks
+│   │   ├── useKeyboardShortcuts.ts
+│   │   ├── useMediaSession.ts
+│   │   └── useDownloadProgress.ts
+│   ├── lib/                   # Utilities and configs
+│   │   ├── firebase.ts        # Firebase setup
+│   │   ├── drive.ts           # Drive API helpers
+│   │   └── utils.ts           # Helper functions
+│   ├── store/                 # Zustand state stores
+│   │   ├── authStore.ts
+│   │   ├── driveStore.ts
+│   │   └── playerStore.ts
+│   └── types/                 # TypeScript definitions
+├── public/                    # Static assets
+├── package.json
+└── next.config.js
 ```
 
-## 🎮 Keyboard Shortcuts
+## 🛠️ Tech Stack
 
-- `Space` - Play/Pause
-- `←` / `→` - Previous/Next track
-- `↑` / `↓` - Volume up/down
-- `M` - Mute
-- `S` - Shuffle
-- `R` - Repeat
-- `F` - Fullscreen (video)
-- `Esc` - Close player
-
-## 🔒 Security
-
-- OAuth tokens stored securely (never hardcoded)
-- File type validation
-- Sanitized filenames and metadata
-- Rate limiting on API calls
-- HTTPS-only in production
-- CORS properly configured
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Add environment variables
-4. Deploy!
-
-```bash
-# Or use Vercel CLI
-npm i -g vercel
-vercel
-```
-
-### Environment Variables for Production
-- Update `NEXTAUTH_URL` to your production domain
-- Update Google OAuth redirect URIs in Cloud Console
-- Ensure all Firebase services are in production mode
-
-## 📊 Performance Targets
-
-- ✅ Folder load to play: <2 seconds
-- ✅ 100+ files folder: Smooth loading
-- ✅ Gapless audio playback
-- ✅ Video resume from exact position
-- ✅ Mobile responsive
-- ✅ Cross-browser support (Chrome/Safari/Firefox)
-
-## 🛠️ Technology Stack
-
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS, shadcn/ui
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
 - **State Management**: Zustand
 - **Authentication**: Firebase Auth
 - **Database**: Firestore
 - **API Integration**: Google Drive API
+- **Audio Processing**: Web Audio API
 - **Deployment**: Vercel
+
+## 🎨 Screenshots
+
+### Homepage
+Beautiful landing page with gradient design and feature highlights.
+
+### Audio Player
+Advanced audio player with 3 visualization types and 10-band equalizer.
+
+### Video Player
+Custom video player with auto-play next and picture-in-picture.
+
+### Drive Browser
+Intuitive file browser with search, filters, and folder playback.
+
+### Mini Player
+Persistent mini player that works across all pages.
+
+## 📊 Performance
+
+- ✅ Folder load to play: <2 seconds
+- ✅ 100+ files folder: Smooth loading
+- ✅ Gapless audio playback
+- ✅ 60fps visualizations
+- ✅ Mobile responsive
+- ✅ Cross-browser support
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+### Good First Issues
+
+Look for issues labeled:
+- `good first issue` - Perfect for newcomers
+- `help wanted` - Community help needed
+- `enhancement` - New features
+- `bug` - Bug fixes
 
 ## 📝 Roadmap
 
-### Phase 1: MVP ✅
+### ✅ Phase 1: MVP (Completed)
 - [x] Firebase Authentication
 - [x] Google Drive OAuth
 - [x] Folder browser
 - [x] Basic audio player
 - [x] Mini player bar
 
-### Phase 2: Polish (In Progress)
-- [ ] Video player with auto-play
-- [ ] Image gallery with slideshow
-- [ ] Queue system with shuffle
-- [ ] Playback state persistence
-- [ ] Responsive mobile UI
+### ✅ Phase 2: Features (Completed)
+- [x] Audio visualizations
+- [x] Video player with auto-play
+- [x] Image gallery with lightbox
+- [x] Equalizer & sleep timer
+- [x] Keyboard shortcuts
+- [x] Queue management
+- [x] Playlist manager
 
-### Phase 3: Advanced Features
-- [ ] Equalizer presets
-- [ ] Speed control
-- [ ] Keyboard shortcuts
+### 🔮 Phase 3: Advanced (Upcoming)
 - [ ] Chromecast/AirPlay support
-- [ ] Offline mode with service worker
-- [ ] Playlist creation
+- [ ] Offline mode (PWA)
+- [ ] Lyrics display
+- [ ] Dark mode
+- [ ] Custom themes
 - [ ] Sharing capabilities
+- [ ] Voice commands
+- [ ] AI recommendations
 
-## 🤝 Contributing
+## 💬 Support
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+For issues or questions:
+- 🐛 [Report a bug](https://github.com/praveen2git/leo-player/issues/new?template=bug_report.md)
+- 🚀 [Request a feature](https://github.com/praveen2git/leo-player/issues/new?template=feature_request.md)
+- 💬 [Ask a question](https://github.com/praveen2git/leo-player/discussions)
 
 ## 📄 License
 
-MIT License - feel free to use this project for personal or commercial purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
 **Praveen Kumar**
 - GitHub: [@praveen2git](https://github.com/praveen2git)
 - Location: Salem, Tamil Nadu, India
+- Experience: 8+ years in PHP, Node.js, Python, React.js, Next.js, AWS
 
 ## 🙏 Acknowledgments
 
-- [Next.js](https://nextjs.org/)
-- [Firebase](https://firebase.google.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Zustand](https://github.com/pmndrs/zustand)
+- [Next.js](https://nextjs.org/) - The React Framework
+- [Firebase](https://firebase.google.com/) - Authentication & Database
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [Zustand](https://github.com/pmndrs/zustand) - State management
+- [Lucide Icons](https://lucide.dev/) - Beautiful icons
+
+## ⭐ Star History
+
+If you find Leo Player useful, please consider giving it a star!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=praveen2git/leo-player&type=Date)](https://star-history.com/#praveen2git/leo-player&Date)
 
 ---
 
-**Made with ❤️ for Drive media lovers**
+<div align="center">
+  <strong>Made with ❤️ for Drive media lovers</strong>
+  <br>
+  <sub>Built with passion by Praveen Kumar</sub>
+</div>
